@@ -32,14 +32,6 @@
     <name>${project.artifactId}</name>
 
     <modules>
-        <module>flyway-database-tidb</module>
-        <module>flyway-database-ignite</module>
-        <module>flyway-database-yugabytedb</module>
-        <module>flyway-database-clickhouse</module>
-        <module>flyway-database-oceanbase</module>
-        <module>flyway-database-databricks</module>
-        <module>flyway-database-db2zos</module>
-        <module>flyway-community-db-support-archetype</module>
         <module>flyway-database-tibero</module>
     </modules>
 
@@ -53,7 +45,7 @@
                 <groupId>${project.groupId}</groupId>
                 <artifactId>flyway-core</artifactId>
                 <version>${version.flyway}</version>
-                <scope>provided</scope>
+<!--                <scope>provided</scope>-->
             </dependency>
         </dependencies>
     </dependencyManagement>
