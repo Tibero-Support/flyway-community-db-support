@@ -20,6 +20,11 @@
       <artifactId>flyway-core</artifactId>
     </dependency>
     <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
       <groupId>com.tmax.tibero</groupId>
       <artifactId>tibero-jdbc</artifactId>
       <version>7</version>
