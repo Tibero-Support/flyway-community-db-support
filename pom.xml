@@ -36,7 +36,7 @@
     </modules>
 
     <properties>
-        <version.flyway>10.16.0</version.flyway>
+        <version.flyway>10.17.3</version.flyway>
     </properties>
 
     <dependencyManagement>
