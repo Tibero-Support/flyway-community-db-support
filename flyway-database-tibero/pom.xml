@@ -15,10 +15,6 @@
   <name>${project.artifactId}</name>
 
   <dependencies>
-    <dependency>
-      <groupId>${project.groupId}</groupId>
-      <artifactId>flyway-core</artifactId>
-    </dependency>
             <dependency>
                 <groupId>com.tmax.tibero</groupId>
                 <artifactId>tibero-jdbc</artifactId>
@@ -27,16 +23,6 @@
                 <systemPath>${basedir}/libs/tibero7-jdbc.jar</systemPath>
             </dependency>
   </dependencies>
-
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>org.projectlombok</groupId>
-        <artifactId>lombok</artifactId>
-        <version>1.18.28</version> <!-- 원하는 버전으로 설정 -->
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
 
   <build>
     <resources>

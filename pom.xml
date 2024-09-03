@@ -13,8 +13,8 @@
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
-
 -->
+
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -36,7 +36,9 @@
     </modules>
 
     <properties>
-        <version.flyway>10.16.0</version.flyway>
+        <java.version>17</java.version>
+        <lombok.version>1.18.28</lombok.version> <!-- Lombok의 최신 버전 -->
+        <flyway.version>10.16.0</flyway.version> <!-- Flyway-core 버전 지정 -->
     </properties>
 
     <dependencyManagement>
@@ -47,6 +49,7 @@
                 <version>${version.flyway}</version>
 <!--                <scope>provided</scope>-->
             </dependency>
+
         </dependencies>
     </dependencyManagement>
 
