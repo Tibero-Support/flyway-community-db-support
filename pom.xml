@@ -74,6 +74,10 @@
   <dependencyManagement>
     <dependencies>
       <dependency>
+        <artifactId>flyway-database-tibero</artifactId>
+        <groupId>com.github.YGwan.flyway-community-db-support</groupId>
+      </dependency>
+      <dependency>
         <artifactId>flyway-core</artifactId>
         <groupId>${project.groupId}</groupId>
         <scope>provided</scope>
