@@ -42,6 +42,14 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
+  <distributionManagement>
+    <repository>
+      <id>github</id>
+      <name>GitHub OWNER Apache Maven Packages</name>
+      <url>https://maven.pkg.github.com/YGwan/flyway-community-db-support</url>
+    </repository>
+  </distributionManagement>
+
 
   <build>
     <resources>
