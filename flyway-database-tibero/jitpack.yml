@@ -1,8 +1,0 @@
-version: 2.0
-build:
-  artifacts:
-    - path: libs/tibero7-jdbc.jar
-      name: tibero-jdbc.jar
-
-jdk:
-  - openjdk17
