@@ -15,14 +15,28 @@
   <name>${project.artifactId}</name>
 
   <dependencies>
-            <dependency>
-                <groupId>com.tmax.tibero</groupId>
-                <artifactId>tibero-jdbc</artifactId>
-                <version>7</version>
-                <scope>system</scope>
-                <systemPath>${basedir}/libs/tibero7-jdbc.jar</systemPath>
-            </dependency>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>flyway-core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.tmax.tibero</groupId>
+      <artifactId>tibero-jdbc</artifactId>
+      <version>7</version>
+      <scope>system</scope>
+      <systemPath>${basedir}/libs/tibero7-jdbc.jar</systemPath>
+    </dependency>
   </dependencies>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <version>1.18.28</version> <!-- 원하는 버전으로 설정 -->
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 
   <build>
     <resources>
@@ -33,14 +47,10 @@
     </resources>
     <plugins>
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.8.1</version>
-        <configuration>
-          <source>17</source> <!-- 자바 소스 버전 -->
-          <target>17</target> <!-- 자바 타겟 버전 -->
-          <release>17</release> <!-- JDK 9 이상에서 지원 -->
-        </configuration>
+        <artifactId>maven-resources-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <artifactId>maven-jar-plugin</artifactId>
       </plugin>
     </plugins>
   </build>
