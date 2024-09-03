@@ -18,6 +18,7 @@
     <dependency>
       <groupId>${project.groupId}</groupId>
       <artifactId>flyway-core</artifactId>
+      <version>10.16.0</version>
     </dependency>
     <dependency>
       <artifactId>lombok</artifactId>
