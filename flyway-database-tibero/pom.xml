@@ -20,8 +20,8 @@
       <artifactId>flyway-core</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
+      <groupId>org.projectlombok</groupId>
       <scope>provided</scope>
     </dependency>
     <dependency>
@@ -30,26 +30,9 @@
       <version>7</version>
       <scope>system</scope>
       <systemPath>${basedir}/libs/tibero7-jdbc.jar</systemPath>
+      <optional>true</optional>
     </dependency>
   </dependencies>
-
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>org.projectlombok</groupId>
-        <artifactId>lombok</artifactId>
-        <version>1.18.28</version> <!-- 원하는 버전으로 설정 -->
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
-  <distributionManagement>
-    <repository>
-      <id>github</id>
-      <name>GitHub OWNER Apache Maven Packages</name>
-      <url>https://maven.pkg.github.com/YGwan/flyway-community-db-support</url>
-    </repository>
-  </distributionManagement>
-
 
   <build>
     <resources>
@@ -67,5 +50,4 @@
       </plugin>
     </plugins>
   </build>
-
 </project>
