@@ -80,7 +80,7 @@
       <dependency>
         <artifactId>flyway-core</artifactId>
         <groupId>${project.groupId}</groupId>
-        <scope>provided</scope>
+<!--        <scope>providedx</scope>-->
         <version>10.16.0</version>
       </dependency>
     </dependencies>
@@ -103,6 +103,5 @@
   <properties>
     <version.flyway>10.16.0</version.flyway>
   </properties>
-
   <version>10.16.0</version>
 </project>
