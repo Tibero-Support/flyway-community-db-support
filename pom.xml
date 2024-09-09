@@ -80,7 +80,7 @@
       <dependency>
         <artifactId>flyway-core</artifactId>
         <groupId>${project.groupId}</groupId>
-<!--        <scope>providedx</scope>-->
+        <scope>provided</scope>
         <version>10.16.0</version>
       </dependency>
     </dependencies>
