@@ -1,12 +1,10 @@
-name: Release Tag
+name: Release
 
 on:
-  push:
-    branches:
-      - main
   pull_request:
     branches:
-      - main
+      - master
+    types: [ closed ]
 
 jobs:
   build:
@@ -28,5 +26,3 @@ jobs:
         with:
           tag_name: ${{ env.TAG }}
           release_name: ${{ env.TAG }}
-
-#https://github.com/actions/create-release
