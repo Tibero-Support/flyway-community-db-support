@@ -1,4 +1,4 @@
-name: Draft a new release
+name: Release
 
 on:
   pull_request:
@@ -23,6 +23,9 @@ jobs:
       - name: Get branch names
         id: branch-name
         uses: tj-actions/branch-names@v4.9
+
+      - name: 브랜치 이름 확인
+        run: echo ${{ steps.branch-name.outputs.current_branch }}
 
       - name: 버전 정보 추출(from Branch Name)
         run: echo "TAG=$(echo '${{ steps.branch-name.outputs.current_branch }}' | egrep -o '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}')" >> $GITHUB_ENV
