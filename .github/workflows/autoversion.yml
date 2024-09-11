@@ -48,3 +48,4 @@ jobs:
           author_email: github-buildmonkey@red-gate.com
           message: 'Bump Flyway Community DB Support to ${{ steps.update_version.outputs.NEW_VERSION }}'
           tag: '${{ steps.update_version.outputs.NEW_VERSION }}'
+
