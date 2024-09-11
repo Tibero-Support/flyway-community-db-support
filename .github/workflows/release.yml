@@ -16,11 +16,12 @@ jobs:
       id-token: write
 
     if: github.event.pull_request.merged == true && startsWith(github.head_ref, 'release/') && contains(github.head_ref, '.')
+
     steps:
       # Checkout the release branch explicitly
       - uses: actions/checkout@v4
 
-      - name: Get branch names
+      - name: Get branch namesa
         id: branch-name
         uses: tj-actions/branch-names@v4.9
 
