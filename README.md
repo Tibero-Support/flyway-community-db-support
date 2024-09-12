@@ -5,13 +5,13 @@
 2. [License](#license)
 3. [Key Modifications](#key-modifications)
 4. [Getting Started](#getting-started)
-    - [Adding Dependencies](#adding-dependencies)
-        - [Gradle](#gradle)
-        - [Maven](#maven)
+   - [Adding Dependencies](#adding-dependencies)
+      - [Gradle](#gradle)
+      - [Maven](#maven)
 5. [Basic Usage](#basic-usage)
-    - [Clean](#clean)
-    - [Baseline](#baseline)
-    - [Migrate](#migrate)
+   - [Clean](#clean)
+   - [Baseline](#baseline)
+   - [Migrate](#migrate)
 6. [Version Support](#version-support)
 7. [Contributing](#contributing)
 8. [Support](#support)
@@ -41,53 +41,46 @@ The following key modifications have been made to the original Flyway project:
 
 Add the following to your `build.gradle` file:
 
-``` groovy
+```groovy
 repositories {
     maven {
-	mavenCentral()
-	maven { url 'https://jitpack.io' }
+        url "${github repo url}"
     }
 }
 
 dependencies {
-    implementation 'com.github.Tibero-Support:flyway-community-db-support:flyway-database-tibero:${version}'
-
+    implementation "org.flywaydb:flyway-core:${flywayVersion}"
+    
     // implementation tibero jar
-    // implemetation flyway-core
+    // implemetation flyway for tibero
 }
 ```
 
 #### Maven
 
-``` xml
+```xml
 <repositories>
-    <repository>
-        <id>jitpack.io</id>
-        <url>https://jitpack.io</url>
-    </repository>
+   <repository>
+      <id>github</id>
+      <url>${github repo url}</url>
+   </repository>
 </repositories>
 
 <dependencies>
-    # implemetation flyway-core
-    <dependency>
-        <groupId>org.flywaydb</groupId>
-        <artifactId>flyway-core</artifactId>
-        <version>${flywayVersion}</version>
-    </dependency>
-
-    # implementation tibero jar  
-    <dependency>
-        <!--tibero jar-->
-    </dependency>
-
-    # implementation flyway-db-support
-    <dependency>
-        <groupId>com.github.Tibero-Support</groupId>
-        <artifactId>flyway-database-tibero</artifactId>
-        <version>${version}</version>
-    </dependency>
+   <dependency>
+      <groupId>org.flywaydb</groupId>
+      <artifactId>flyway-core</artifactId>
+      <version>${flywayVersion}</version>
+   </dependency>
+   <dependency>
+      <!--tibero jar-->
+   </dependency>
 </dependencies>
 ```
+
+#### SET Tibero7-jdbc.jar file Path
+- [EXPLANATION](flyway-database-tibero%2Flibs%2FREADME.md)
+
 ## Basic Usage
 
 Flyway for Tibero provides several core commands to manage your database migrations. Here's a detailed explanation of each command and how to use them:
@@ -96,7 +89,7 @@ Flyway for Tibero provides several core commands to manage your database migrati
 
 The `clean` command drops all objects in the configured schemas, effectively wiping the database clean.
 
-``` java
+```java
 Flyway flyway = Flyway.configure()
 	.cleanDisabled(false)
 	.dataSource(url, user, password)
@@ -117,7 +110,7 @@ flyway.clean();
 
 The `baseline` command marks an existing database state as the starting point for further migrations. It's useful when you're introducing Flyway to an existing project.
 
-``` java
+```java
 Flyway flyway = Flyway.configure()
 	.locations("classpath:db/migration", "filesystem:/path/to/migrations")
 	.dataSource(url, user, password)
