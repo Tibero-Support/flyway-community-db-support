@@ -10,6 +10,13 @@
 
 ### Example
 
+#### Groovy
+``` groovy
+dependencies {
+    implementation files({tibero7-jdbc.jar custom file path})
+}
+```
+#### Maven
 ``` xml
 
 <dependency>
