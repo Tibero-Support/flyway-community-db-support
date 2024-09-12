@@ -1,0 +1,39 @@
+name: Release New Version
+
+on:
+  pull_request:
+    branches:
+      - main
+    types: [ closed ]
+
+jobs:
+  release-new-version:
+    name: Release-new-version
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: write
+      id-token: write
+
+    if: github.event.pull_request.merged == true && startsWith(github.head_ref, 'release/') && contains(github.head_ref, '.')
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Get branch names
+        id: branch-name
+        uses: tj-actions/branch-names@v4.9
+
+      - name: 버전 정보 추출(from Branch Name)
+        run: echo "TAG=$(echo '${{ steps.branch-name.outputs.current_branch }}' | egrep -o '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}')" >> $GITHUB_ENV
+
+      - name: Create a GitHub release
+        uses: actions/create-release@v1
+        with:
+          tag_name: ${{ env.TAG }}
+          release_name: ${{ env.TAG }}
+#          body: |
+#              Changes in this Release
+#              - First Change
+#              - Second Change
+          draft: false
+          prerelease: false
