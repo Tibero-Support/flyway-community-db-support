@@ -41,40 +41,51 @@ The following key modifications have been made to the original Flyway project:
 
 Add the following to your `build.gradle` file:
 
-```groovy
+``` groovy
 repositories {
     maven {
-        url "${github repo url}"
+	mavenCentral()
+	maven { url 'https://jitpack.io' }
     }
 }
 
 dependencies {
-    implementation "org.flywaydb:flyway-core:${flywayVersion}"
-    
+    implementation 'com.github.Tibero-Support:flyway-community-db-support:flyway-database-tibero:${version}'
+
     // implementation tibero jar
-    // implemetation flyway for tibero
+    // implemetation flyway-core
 }
 ```
 
 #### Maven
 
-```xml
+``` xml
 <repositories>
-   <repository>
-      <id>github</id>
-      <url>${github repo url}</url>
-   </repository>
+    <repository>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
+    </repository>
 </repositories>
 
 <dependencies>
-   <dependency>
-      <groupId>org.flywaydb</groupId>
-      <artifactId>flyway-core</artifactId>
-      <version>${flywayVersion}</version>
-   </dependency>
-   <dependency>
-      <!--tibero jar-->
-   </dependency>
+    # implemetation flyway-core
+    <dependency>
+        <groupId>org.flywaydb</groupId>
+        <artifactId>flyway-core</artifactId>
+        <version>${flywayVersion}</version>
+    </dependency>
+
+    # implementation tibero jar  
+    <dependency>
+        <!--tibero jar-->
+    </dependency>
+
+    # implementation flyway-db-support
+    <dependency>
+        <groupId>com.github.Tibero-Support</groupId>
+        <artifactId>flyway-database-tibero</artifactId>
+        <version>${version}</version>
+    </dependency>
 </dependencies>
 ```
 ## Basic Usage
@@ -85,7 +96,7 @@ Flyway for Tibero provides several core commands to manage your database migrati
 
 The `clean` command drops all objects in the configured schemas, effectively wiping the database clean.
 
-```java
+``` java
 Flyway flyway = Flyway.configure()
 	.cleanDisabled(false)
 	.dataSource(url, user, password)
@@ -106,7 +117,7 @@ flyway.clean();
 
 The `baseline` command marks an existing database state as the starting point for further migrations. It's useful when you're introducing Flyway to an existing project.
 
-```java
+``` java
 Flyway flyway = Flyway.configure()
 	.locations("classpath:db/migration", "filesystem:/path/to/migrations")
 	.dataSource(url, user, password)
